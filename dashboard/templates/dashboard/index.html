@@ -31,7 +31,9 @@
         <div class="post">
             <h3 class="post_title">{{ post.title }}</h3>
             <h4>{{ post.content }}<span></span></h4>
-            <p>{{ post.author.first_name }} {{ post.author.last_name }} on {{ post.created_at }}</p>
+            <p>By: <a href="/posts/user_profile/{{post.author.id}}">{{ post.author.first_name }} {{ post.author.last_name }}</a> on {{ post.created_at }}</p>
+            <a href="/posts/like/{{post.id}}">Like Post</a>
+                <p>{{ post.user_likes.count }}</p>
             <form class="form_field"  action="/posts/add_comment/{{post.id}}" method=POST>
                 {% csrf_token %}
                 <input class="comment_box" type="text" placeholder="comment here...." name='comment'>

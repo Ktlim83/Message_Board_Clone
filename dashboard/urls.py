@@ -7,6 +7,9 @@ urlpatterns = [
     path('<int:post_id>/delete', views.delete),
     path('post_message', views.post_mess),
     path('add_comment/<int:id>', views.post_comment),
+    path('like/<int:id>', views.add_like),
     path('delete/<int:id>', views.delete_comment),
+    path('user_profile/<int:id>', views.profile),
+    path('edit/<int:id>', views.edit)
 
 ]

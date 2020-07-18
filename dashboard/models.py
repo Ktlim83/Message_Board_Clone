@@ -18,6 +18,7 @@ class PostManager(models.Manager):
 class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.CharField(max_length=255)
+    user_likes = models.ManyToManyField(User, related_name='liked_posts')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     # author_id
