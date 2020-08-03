@@ -22,7 +22,7 @@ def delete(request, post_id):
     return redirect('/posts')
 
 def post_mess(request):
-    Post.objects.create(title=request.POST['title'],content=request.POST['content'], author=User.objects.get(id=request.session['user_id']))
+    Post.objects.create(content=request.POST['content'], author=User.objects.get(id=request.session['user_id']))
     return redirect('/posts')
 
 def post_comment(request, id):

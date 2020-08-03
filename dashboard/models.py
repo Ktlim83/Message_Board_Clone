@@ -6,9 +6,6 @@ from log_reg_app.models import User
 class PostManager(models.Manager):
     def validate(self, form_data):
         errors = {}
-        # title has to be not empty
-        if len(form_data['title']) < 1:
-            errors['title'] = 'Title of post needs to be longer.'
         # needs content
         if len(form_data['content']) < 1:
             errors['content'] = 'Content should not be empty.'
@@ -16,7 +13,6 @@ class PostManager(models.Manager):
         return errors
 
 class Post(models.Model):
-    title = models.CharField(max_length=255)
     content = models.CharField(max_length=255)
     user_likes = models.ManyToManyField(User, related_name='liked_posts')
     created_at = models.DateTimeField(auto_now_add=True)
@@ -26,7 +22,7 @@ class Post(models.Model):
     
     
     def __str__(self):
-        return f"{self.id} {self.title} {self.content}"
+        return f"{self.id}{self.content}"
     
 class Comment(models.Model):
     comment = models.CharField(max_length=255)

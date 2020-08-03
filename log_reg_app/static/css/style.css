@@ -34,9 +34,13 @@ h2 {
     text-align: center;
 }
 
+
 .post {
-    background-color: black;
-}
+    border: 3px solid #888;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    padding: 20px 25px; 
+    }
 
 .alert {
     margin-top: 5px;
@@ -66,14 +70,15 @@ h2 {
     background-color: rgb(88, 29, 2);
 }
 
-textarea,
-.comment_box,
-#title_text {
-    resize: none;
-    background-color: coral;
-    margin: 0;
+#message_area, #content_text {
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    padding: 10px;
+    border-radius: 15px;
+    
+}
+hr {
+    border: 1px solid white;
 }
 
-#message_area {
-    background-color: black;
-}
