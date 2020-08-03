@@ -67,6 +67,7 @@ class UserManager(models.Manager):
             errors['email'] = 'Email already in use.'
             
         return errors
+    
 
 
 

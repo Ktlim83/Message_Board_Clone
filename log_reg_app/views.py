@@ -19,8 +19,8 @@ def create(request):
 
     new_user = User.objects.register(request.POST)
     request.session['user_id'] = new_user.id
-    messages.success(request, "You have successfully registered!", extra_tags='signup')
-    return redirect('/posts')
+    messages.success(request, "You have successfully registered! Please sign in!", extra_tags='signup')
+    return redirect('/')
 
 def login(request):
     result = User.objects.authenticate(request.POST['email'], request.POST['password'])
@@ -34,13 +34,6 @@ def login(request):
     return redirect('/')
 
 
-def success(request):
-    if not 'user_id' in request.session:
-        return redirect('/')
-    context = {
-        'user': User.objects.get(id=request.session['user_id'])
-    }
-    return render(request, 'success.html', context)
 
 def logout(request):
     messages.success(request, "You have successfully logged out!", extra_tags='logout')
@@ -50,3 +43,11 @@ def logout(request):
 
 
 
+
+# def success(request):
+#     if not 'user_id' in request.session:
+#         return redirect('/')
+#     context = {
+#         'user': User.objects.get(id=request.session['user_id'])
+#     }
+#     return render(request, 'success.html', context)

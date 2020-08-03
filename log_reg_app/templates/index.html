@@ -45,6 +45,13 @@
                 {% endif %}
                 {% endfor %}
             {% endif %}
+            {% if messages %}
+                {% for message in messages %}
+                {% if 'signup' in message.extra_tags %}
+                <div class="alert alert-success" role="alert">{{ message }}</div>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
             </div>
             <div class="register_field col-sm">
                 <h2>Register</h2>
